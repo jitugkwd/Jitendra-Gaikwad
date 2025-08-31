@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Recipes</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        header {
+            background-color: #ff9800;
+            padding: 10px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            margin: 0 10px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+        #filters {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 5px;
+            padding: 10px;
+        }
+        #filters button {
+            padding: 10px;
+            border: none;
+            background-color: #ff9800;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        #filters button:hover {
+            background-color: #e68900;
+        }
+        #searchBar {
+            width: 90%;
+            max-width: 400px;
+            display: block;
+            margin: 10px auto;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        #searchResults, #historyList {
+            padding: 10px;
+            max-width: 400px;
+            margin: auto;
+        }
+        .dish {
+            padding: 10px;
+            background-color: #f8f8f8;
+            margin: 5px 0;
+            cursor: pointer;
+            border-radius: 5px;
+            text-align: center;
+        }
+        #outputContainer {
+            padding: 15px;
+            background-color: #fff3cd;
+            border-radius: 5px;
+            max-width: 400px;
+            margin: auto;
+            display: none;
+        }
+        @media (max-width: 600px) {
+            #filters {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>शेफ रेसिपी मार्गदर्शक</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="search.html">Search Recipes</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="filters">
+        <button onclick="filterDishes('all')">All</button>
+        <button onclick="filterDishes('breakfast')">Breakfast</button>
+        <button onclick="filterDishes('lunch')">Lunch</button>
+        <button onclick="filterDishes('drinks')">Drinks</button>
+        <button onclick="filterDishes('tea')">Tea</button>
+        <button onclick="filterDishes('coffee')">Coffee</button>
+    </div>
+
+    <input type="text" id="searchBar" placeholder="Search for a dish...">
+    <div id="searchResults"></div>
+
+    <h3>Search History</h3>
+    <ul id="historyList"></ul>
+
+    <div id="outputContainer">
+        <h3></h3>
+        <ul id="outputList"></ul>
+        <button id="shareButton" style="display: none;">📤 Share on WhatsApp</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
